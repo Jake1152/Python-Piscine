@@ -32,7 +32,7 @@ def handle_error(err):
     return 1
 
 
-def ft_filter(function, iterable):
+def filter(function, iterable):
     """
     Note.
 

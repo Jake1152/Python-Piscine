@@ -52,13 +52,13 @@ def main():
     인자받아서 처리함수로 넘기고 결과 받기까지 등등
     """
     from sys import argv
-    from ft_filter import ft_filter
+    from ft_filter import filter
 
     try:
         args = argv
         corpus, num = parse_argument(args)
         words = corpus.split()
-        filtered_iterable = ft_filter(lambda x: len(x) > num, words)
+        filtered_iterable = filter(lambda x: len(x) > num, words)
         if filtered_iterable != 1:
             print(filtered_iterable)
 
