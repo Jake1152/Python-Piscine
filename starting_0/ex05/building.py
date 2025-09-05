@@ -50,11 +50,11 @@ def building(corpus):
         + count_dict["punctuation"]\
         + count_dict["space"] + count_dict["digit"]
     print(f"The text contains {total_ch_count} characters:")
-    print(f"{count_dict["upper"]} upper letters")
-    print(f"{count_dict["lower"]} lower letters")
-    print(f"{count_dict["punctuation"]} punctuation marks")
-    print(f"{count_dict["space"]} spaces")
-    print(f"{count_dict["digit"]} digits")
+    print(str(count_dict["upper"]) + " upper letters")
+    print(str(count_dict["lower"]) + " lower letters")
+    print(str(count_dict["punctuation"]) + " punctuation marks")
+    print(str(count_dict["space"]) + " spaces")
+    print(str(count_dict["digit"]) + " digits")
     return 0
 
 
