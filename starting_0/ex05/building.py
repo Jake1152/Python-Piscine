@@ -1,9 +1,11 @@
-'''
-# flake8사용
+"""
+# flake8사용.
+
 pip install flake8
 export PATH="/home/jim/.local/bin:$PATH"
-'''
-'''
+"""
+
+"""
 $>python building.py "Python 3.0, released in 2008, was a major revision
 that is not completely backward
 compatible with earlier versions.
@@ -15,22 +17,17 @@ The text contains 171 characters:
 26 spaces
 15 digits
 $>
-'''
+"""
 
 
 def building(corpus):
+    """문자열을 넘겨받아서 각 조건에 맞게 카운팅 한 글자씩 읽어서 처리."""
     def ispunctuation(ch):
-        """
-        문장부호 검사용
-        """
+        """문장부호 검사용."""
         from string import punctuation
         if ch in punctuation:
             return True
         return False
-    """
-    문자열을 넘겨받아서 각 조건에 맞게 카운팅
-    한 글자씩 읽어서 처리
-    """
     # default dict사용하면 간단
     count_dict = {
         "lower": 0, "upper": 0, "punctuation": 0, "space": 0, "digit": 0
@@ -62,9 +59,7 @@ def building(corpus):
 
 
 def get_corpus(args):
-    """
-    말뭉치 전달 및 인자 검증
-    """
+    """말뭉치 전달 및 인자 검증."""
     from sys import stdin
 
     corpus = ""
@@ -82,17 +77,16 @@ def get_corpus(args):
 
 
 def handle_error(err):
-    """
-    에러핸들링
-    """
+    """에러핸들링."""
     print(f"AssertionError : {err}")
     return 1
 
 
 def main():
     """
-    프로그램 실행 흐름만 담당함
-    인자받아서 처리함수로 넘기고 결과 받기까지 등등.
+    프로그램 실행 흐름만 담당함.
+
+    인자받아서 처리함수로 넘기고 결과 받기까지 등등
     """
     from sys import argv
 
