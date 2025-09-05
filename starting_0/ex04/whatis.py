@@ -1,5 +1,5 @@
 '''
-ref: 
+ref:
 - https://sseongju1.tistory.com/34#google_vignette
 - https://docs.python.org/ko/3.13/tutorial/errors.html
 - https://docs.python.org/ko/3.13/tutorial/errors.html
@@ -25,18 +25,19 @@ $> python whatis.py 13 5
 AssertionError: more than one argument is provided
 $>
 '''
-import sys
+
 
 def main():
+    from sys import argv
     try:
-        if len(sys.argv) > 2:
+        if len(argv) > 2:
             raise ValueError("more than one argument is provided")
-        if len(sys.argv) < 2:
+        if len(argv) < 2:
             return
         num = ''
         try:
-            num = abs(int(sys.argv[1]))
-        except:
+            num = abs(int(argv[1]))
+        except ValueError:
             raise ValueError("argument is not an integer")
         if num % 2 == 0:
             print("I'm Even.")
@@ -45,6 +46,7 @@ def main():
 
     except ValueError as err:
         print(f"AssertionError: {err}")
+
 
 if __name__ == "__main__":
     main()

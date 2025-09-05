@@ -21,9 +21,10 @@ Type not Found$
 1$
 $>
 '''
+
+
 def NULL_not_found(object: any) -> int:
     type_str = ''
-    # print("object: #{object}")
     if isinstance(object, type(None)):
         type_str = 'Nothing: None'
     elif isinstance(object, float):
@@ -47,5 +48,3 @@ def NULL_not_found(object: any) -> int:
         return 1
     print(f"{type_str} {type(object)}")
     return 0
-
-    #your code here

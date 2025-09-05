@@ -1,20 +1,19 @@
-from time import time
-from datetime import datetime
 
 def main():
-    ''' #ref: 
+    from time import time
+    from datetime import datetime
+    ''' #ref:
     - https://www.daleseo.com/python-time/
     - https://peps.python.org/pep-0378/
     - string type
-      - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+    - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
     '''
 
     ''' 출력문 예시
     Seconds since January 1, 1970: 1,666,355,857.3622 or 1.67e+09 in scientific notation$
     Oct 21 2022$
-    
     '''
-    cur_utime = time() 
+    cur_utime = time()
     '''
     print(f"{cur_utime:,.4f}")
     formatted_utime = format(cur_utime, ",.4f")
