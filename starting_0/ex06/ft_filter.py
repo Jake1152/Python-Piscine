@@ -32,20 +32,14 @@ def handle_error(err):
     return 1
 
 
-def filter(function, iterable):
+def ft_filter(function, iterable):
+    """filter(function or None, iterable) --> filter object\n\nReturn
+    an iterator yielding those items of iterable for which function(item)\nis true.
+    If function is None, return the items that are true.
     """
-    Note.
-
-    that filter(function, iterable) is equivalent to the generator expression
-    (item for item in iterable if function(item)) if function is not None
-    and (item for item in iterable if item) if function is None.
-    """
-    try:
-        callable(function)
-        iter(iterable)
-    except ValueError:
-        msg = "Please be adjust argument for ft_filer(function, iterable)"
-        raise ValueError(msg)
-
-    filtered_iterable = [val for val in iterable if function(val)]
+    filtered_iterable = None
+    if function is None:
+        filtered_iterable = (val for val in iterable if val)
+    else:
+        filtered_iterable = (val for val in iterable if function(val))
     return filtered_iterable

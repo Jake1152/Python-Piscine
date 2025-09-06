@@ -17,14 +17,17 @@ $>
 def parse_argument(args):
     """validation과 parse를 같이 진행한다."""
     corpus = ""
-    if len(args) != 2:
-        raise ValueError("the arguments are bad")
+
     try:
+        assert len(args) != 2, "the arguments are bad"
+        # if len(args) != 2:
+        #     raise ValueError()
+        # TODO: 빈 공백이 여러개이면 한개로 축약
         for ch in args[1]:
-            if not ch.isalnum():
-                raise ValueError("the arguments are bad")
             if ch.isalpha():
                 ch = ch.upper()
+            if ch.isalnum() == False and ch != " ":
+                raise ValueError("the arguments are bad")
             corpus += ch
     except ValueError as err:
         raise ValueError(err)
@@ -42,6 +45,7 @@ def main():
     from sys import argv, stdout
 
     NESTED_MORSE = {
+        " ": "\\",
         "A": ".-",
         "B": "-...",
         "C": "-.-.",

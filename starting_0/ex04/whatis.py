@@ -31,20 +31,20 @@ def main():
     from sys import argv
     try:
         if len(argv) > 2:
-            raise ValueError("more than one argument is provided")
+            raise AssertionError("more than one argument is provided")
         if len(argv) < 2:
             return
         num = ''
         try:
             num = abs(int(argv[1]))
-        except ValueError:
-            raise ValueError("argument is not an integer")
+        except AssertionError:
+            raise AssertionError("argument is not an integer")
         if num % 2 == 0:
             print("I'm Even.")
         else:
             print("I'm Odd.")
 
-    except ValueError as err:
+    except AssertionError as err:
         print(f"AssertionError: {err}")
 
 

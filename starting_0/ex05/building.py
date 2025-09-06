@@ -22,39 +22,31 @@ $>
 
 def building(corpus):
     """문자열을 넘겨받아서 각 조건에 맞게 카운팅 한 글자씩 읽어서 처리."""
-    def ispunctuation(ch):
-        """문장부호 검사용."""
-        from string import punctuation
-        if ch in punctuation:
-            return True
-        return False
-    # default dict사용하면 간단
-    count_dict = {
-        "lower": 0, "upper": 0, "punctuation": 0, "space": 0, "digit": 0
-    }
+    from string import punctuation
+    from collections import defaultdict
+
+    count_dict = defaultdict(int)
     for ch in corpus:
         if ch.islower():
             count_dict["lower"] += 1
         elif ch.isupper():
             count_dict["upper"] += 1
-        elif ispunctuation(ch):
+        elif ch in punctuation:
             count_dict["punctuation"] += 1
         elif ch.isspace():
             count_dict["space"] += 1
         elif ch.isdigit():
             count_dict["digit"] += 1
-        # else: # 엄격하게 처리하는 버젼
-        #     raise ValueError(f"유효하지 않은 데이터가 있습니다. 문제의 문자: {ch}")
 
     total_ch_count = count_dict["upper"] + count_dict["lower"]\
         + count_dict["punctuation"]\
         + count_dict["space"] + count_dict["digit"]
     print(f"The text contains {total_ch_count} characters:")
-    print(str(count_dict["upper"]) + " upper letters")
-    print(str(count_dict["lower"]) + " lower letters")
-    print(str(count_dict["punctuation"]) + " punctuation marks")
-    print(str(count_dict["space"]) + " spaces")
-    print(str(count_dict["digit"]) + " digits")
+    print(f"{count_dict['upper']} upper letters")
+    print(f"{count_dict['lower']} lower letters")
+    print(f"{count_dict['punctuation']} punctuation marks")
+    print(f"{count_dict['space']} spaces")
+    print(f"{count_dict['digit']} digits")
     return 0
 
 
@@ -64,7 +56,7 @@ def get_corpus(args):
 
     corpus = ""
     if len(args) > 2:
-        raise ValueError("more than one argument is provided")
+        raise AssertionError("more than one argument is provided")
     elif len(args) < 2:
         try:
             print("What is the text to count?")
@@ -81,7 +73,7 @@ def handle_error(err):
     print(f"AssertionError : {err}")
     return 1
 
-
+# TODO: assert를 활용한 처리
 def main():
     """
     프로그램 실행 흐름만 담당함.
@@ -95,9 +87,11 @@ def main():
         corpus = get_corpus(args)
         building(corpus)
 
-    except ValueError as err:
+    except AssertionError as err:
         return handle_error(err)
-
+    except KeyboardInterrupt as err:
+        pass
+    ## TODO: CTRL+Z, CTRL+\ 처리
 
 if __name__ == "__main__":
     main()

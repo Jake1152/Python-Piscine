@@ -27,7 +27,7 @@ def NULL_not_found(object: any) -> int:
     type_str = ''
     if isinstance(object, type(None)):
         type_str = 'Nothing: None'
-    elif isinstance(object, float):
+    elif isinstance(object, float): # nan은 별도로 상수값이 있음  nan != nan 조건 추가가 필요
         type_str = 'Cheese: nan'
     elif isinstance(object, bool):
         type_str = 'Fake: '
