@@ -38,11 +38,7 @@ def handle_error(err):
 
 
 def main():
-    """
-    프로그램 실행 흐름만 담당함.
-
-    인자받아서 처리함수로 넘기고 결과 받기까지 등등
-    """
+    """알파벳을 받아서 모스부호로 변환한다. 모스부호가 아니라면 에러를 발생시킨다."""
     from sys import argv, stdout
 
     NESTED_MORSE = {
