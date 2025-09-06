@@ -98,5 +98,6 @@ def main():
     except Exception as err:
         handle_error(f"ExceptionError : {err}")
 
+
 if __name__ == "__main__":
     main()
