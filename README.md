@@ -13,3 +13,5 @@ Or from inside `starting_0/`:
 ```sh
 python3 -m unittest discover -s tests
 ```
+
+See [starting_0 test documentation](docs/starting_0_tests.md) for what each test covers.
