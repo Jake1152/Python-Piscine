@@ -41,7 +41,7 @@ def parse_argument(args):
 
 def handle_error(err):
     """에러핸들링."""
-    print(f"AssertionError : {err}")
+    print(f"AssertionError: {err}")
     return 1
 
 
@@ -58,8 +58,7 @@ def main():
         corpus, num = parse_argument(args)
         words = corpus.split()
         filtered_iterable = ft_filter(lambda x: len(x) > num, words)
-        if filtered_iterable != 1:
-            print(filtered_iterable)
+        print([word for word in filtered_iterable])
 
     except ValueError as err:
         return handle_error(err)

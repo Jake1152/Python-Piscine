@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Piscine Starting"
+  short_description: "Run and fix 42 Python Piscine starting_0 exercises."
+  default_prompt: "Use this skill to test or fix starting_0 exercises against the subject."

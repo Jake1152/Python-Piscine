@@ -33,13 +33,10 @@ def handle_error(err):
 
 
 def ft_filter(function, iterable):
-    """filter(function or None, iterable) --> filter object\n\nReturn
-    an iterator yielding those items of iterable for which function(item)\nis true.
-    If function is None, return the items that are true.
-    """
-    filtered_iterable = None
+    """filter(function or None, iterable) --> filter object
+
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true."""
     if function is None:
-        filtered_iterable = (val for val in iterable if val)
-    else:
-        filtered_iterable = (val for val in iterable if function(val))
-    return filtered_iterable
+        return (val for val in iterable if val)
+    return (val for val in iterable if function(val))

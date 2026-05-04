@@ -34,10 +34,9 @@ def main():
             raise AssertionError("more than one argument is provided")
         if len(argv) < 2:
             return
-        num = ''
         try:
-            num = abs(int(argv[1]))
-        except AssertionError:
+            num = int(argv[1])
+        except ValueError:
             raise AssertionError("argument is not an integer")
         if num % 2 == 0:
             print("I'm Even.")

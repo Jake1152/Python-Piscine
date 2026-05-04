@@ -18,34 +18,27 @@ def parse_argument(args):
     """validation과 parse를 같이 진행한다."""
     corpus = ""
 
-    try:
-        assert len(args) != 2, "the arguments are bad"
-        # if len(args) != 2:
-        #     raise ValueError()
-        # TODO: 빈 공백이 여러개이면 한개로 축약
-        for ch in args[1]:
-            if ch.isalpha():
-                ch = ch.upper()
-            if ch.isalnum() == False and ch != " ":
-                raise ValueError("the arguments are bad")
-            corpus += ch
-    except ValueError as err:
-        raise ValueError(err)
+    if len(args) != 2:
+        raise AssertionError("the arguments are bad")
+    for ch in args[1]:
+        if not ch.isalnum() and ch != " ":
+            raise AssertionError("the arguments are bad")
+        corpus += ch.upper()
     return corpus
 
 
 def handle_error(err):
     """에러핸들링."""
-    print(f"AssertionError : {err}")
+    print(f"AssertionError: {err}")
     return 1
 
 
 def main():
     """알파벳을 받아서 모스부호로 변환한다. 모스부호가 아니라면 에러를 발생시킨다."""
-    from sys import argv, stdout
+    from sys import argv
 
     NESTED_MORSE = {
-        " ": "\\",
+        " ": "/",
         "A": ".-",
         "B": "-...",
         "C": "-.-.",
@@ -86,17 +79,11 @@ def main():
 
     try:
         corpus = parse_argument(argv)
-        for idx in range(len(corpus) - 1):
-            ch = corpus[idx]
-            stdout.write(NESTED_MORSE[ch] + ' ')
-        print(NESTED_MORSE[corpus[len(corpus) - 1]])
+        encoded = [NESTED_MORSE[ch] for ch in corpus]
+        print(" ".join(encoded))
 
-    except IndexError as err:
+    except AssertionError as err:
         handle_error(err)
-    except ValueError as err:
-        handle_error(err)
-    except Exception as err:
-        handle_error(f"ExceptionError : {err}")
 
 
 if __name__ == "__main__":
