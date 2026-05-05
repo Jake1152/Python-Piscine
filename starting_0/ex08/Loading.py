@@ -2,7 +2,7 @@ import os
 
 
 def get_terminal_width() -> int:
-    """Return the terminal width or a safe fallback for captured output."""
+    """터미널 너비를 반환하고, 출력이 캡처된 환경에서는 기본값을 사용한다."""
     try:
         return os.get_terminal_size().columns
     except OSError:
@@ -10,7 +10,7 @@ def get_terminal_width() -> int:
 
 
 def ft_tqdm(lst: range) -> None:
-    """Yield items from lst while displaying a simple progress bar."""
+    """lst의 원소를 하나씩 yield하면서 간단한 진행률 바를 출력한다."""
     total = len(lst)
     if total == 0:
         return
